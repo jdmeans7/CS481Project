@@ -1,0 +1,26 @@
+﻿@model QuickType.CurrencyConverter
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Currency</title>
+</head>
+<body>
+    <h1>Currency</h1>
+    <div>
+        <ul>
+            @foreach (var item in Model.Rates)
+            {
+                <li>@item.ToString()</li>
+            }
+        </ul>
+
+    </div>
+</body>
+</html>
