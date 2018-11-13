@@ -27,14 +27,14 @@ namespace QuickType
 
     public partial class CurrencyConverter
     {
-        public static CurrencyConverter FromJson(string json) => JsonConvert.DeserializeObject<CurrencyConverter>(json, QuickType.Converter.Settings);
+        public static CurrencyConverter FromJson(string json) => JsonConvert.DeserializeObject<CurrencyConverter>(json, QuickType.ConverterCurrency.Settings);
     }
 
     public static class SerializeCurrency
     {
         public static string ToJson(this CurrencyConverter self)
         {
-            return JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
+            return JsonConvert.SerializeObject(self, QuickType.ConverterCurrency.Settings);
         }
     }
 
