@@ -15,9 +15,9 @@ namespace CS481WebApp.Models
     public partial class Blog
     {
         public int blogID { get; set; }
-        public string userID { get; set; }
-        public string name { get; set; }
-        public string text { get; set; }
-        public Nullable<System.DateTime> timestamp { get; set; }
+        public string UserId { get; set; }
+        public string Title { get; set; }
+        public string Text { get; set; }
+        public Nullable<System.DateTime> Timestamp { get; set; }
     }
 }

@@ -204,23 +204,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Blog.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Blog.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Blog.cs">
-      <DependentUpon>Blog.tt</DependentUpon>
+      <DependentUpon>Blogs.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Blog.Designer.cs">
+    <Compile Include="Models\Blogs.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Blog.edmx</DependentUpon>
+      <DependentUpon>Blogs.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Blog1.cs">
+    <Compile Include="Models\Blogs.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Blog.tt</DependentUpon>
+      <DependentUpon>Blogs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blogs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blogs.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -236,27 +236,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Blog.Context.tt">
+    <Content Include="Models\Blogs.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Blog.edmx</DependentUpon>
-      <LastGenOutput>Blog.Context.cs</LastGenOutput>
+      <DependentUpon>Blogs.edmx</DependentUpon>
+      <LastGenOutput>Blogs.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Blog.tt">
+    <Content Include="Models\Blogs.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Blog.edmx</DependentUpon>
-      <LastGenOutput>Blog1.cs</LastGenOutput>
+      <DependentUpon>Blogs.edmx</DependentUpon>
+      <LastGenOutput>Blogs.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\Blog.edmx">
+    <EntityDeploy Include="Models\Blogs.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Blog.Designer.cs</LastGenOutput>
+      <LastGenOutput>Blogs.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Blog.edmx.diagram">
-      <DependentUpon>Blog.edmx</DependentUpon>
+    <Content Include="Models\Blogs.edmx.diagram">
+      <DependentUpon>Blogs.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
