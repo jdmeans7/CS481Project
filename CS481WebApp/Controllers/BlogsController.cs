@@ -61,7 +61,7 @@ namespace CS481WebApp.Controllers
                 var timestamp = DateTime.Now;
                 Blog blogAdd = new Blog
                 {
-                    blogID = db.Blogs.Count(),
+                    blogID = db.Blogs.Count() + 1,
                     userID = userID,
                     name = blog.name,
                     text = blog.text,
