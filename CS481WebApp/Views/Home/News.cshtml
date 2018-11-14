@@ -1,0 +1,30 @@
+﻿
+@{
+	ViewBag.Title = "News";
+}
+
+<h2>News</h2>
+
+<p id="title"></p>
+<p id="description"></p>
+<p id="content"></p>
+<p id="url"></p>
+<button>Get News</button>
+
+<script>
+	var count = 0;
+	$(document).ready(function () {
+		$("button").click(function () {
+			$.get("https://newsapi.org/v2/everything?sources=cnn&apiKey=d3873b1722a64a9687bcccb299e06a84", function (response) {
+				//response
+				console.log(response);
+				$("#title").text("Title: " + response.articles[count].title);
+				$("#description").text("Description: " + response.articles[count].description);
+				$("#content").text("Content: " + response.articles[count].content);
+				$("#url").text("For more information: " + response.articles[count].url);
+				count = count + 1;
+				//window.alert(temp);
+			});
+		});
+	});
+</script>

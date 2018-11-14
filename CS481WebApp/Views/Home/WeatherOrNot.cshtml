@@ -1,0 +1,48 @@
+﻿
+@{
+	ViewBag.Title = "Weather Or Not";
+}
+
+
+
+<h2>Please input the zipcode</h2>
+<input type="text" name="txt1" id="txt2" />
+
+
+<div class="col-md-12">
+	<h1>Current Condition in <span data-bind="text:name"></span></h1>
+</div>
+
+<div class="col-md-12">
+	Temperature is <span data-bind="text:main.temp"></span>&deg; F
+</div>
+
+<div class="col-md-12">
+	Humidity is <span data-bind="text:main.humidity"></span>
+</div>
+
+<button>Get Weather</button>
+
+<script>
+	var weather = Object();
+	$(document).ready(function () {
+		$("button").click(function () {
+			$.get("@Url.Action("GetWeather","Home")", function (response) {
+				//response
+				console.log(response);
+				weather = ko.mapping.fromJS(response);
+				ko.applyBindings(weather);
+			});
+		});
+	});
+</script>
+
+<script>
+	function myfunction() {
+		//第一种方法  
+		var temp = document.getElementById("txt2").value;   //注意引号内的内容应该是文本框的id而不能是name  
+		//第二种方法  
+		var temp = document.form1.txt1.value;   //这里第一个“.”后面必须是form标签的name而不能是id；而第二个“.”后id和name均可。  
+		window.alert(temp);
+	}
+</script>

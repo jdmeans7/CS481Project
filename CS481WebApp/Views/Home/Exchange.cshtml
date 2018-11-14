@@ -1,0 +1,45 @@
+﻿
+@{
+	ViewBag.Title = "Exchange";
+}
+<h2>Exchange Rates</h2>
+
+<text>Base<br /></text>
+<input type="text" name="txt1" id="txt1" /><br />
+<text>Rates<br /></text>
+<input type="text" name="txt2" id="txt2" />
+
+<p id="base"></p>
+<p id="date"></p>
+<p id="rates"></p>
+
+<button>Get exchange rate</button>
+
+<script>
+	
+	$(document).ready(function () {
+		$("button").click(function () {
+			var base = document.getElementById("txt1").value;
+			var rate = document.getElementById("txt2").value;
+
+			$.get("https://ratesapi.io/api/latest?base=" + base + "&symbols=" + rate, function (response) {
+				//response
+				console.log(response);
+				var key = rate;
+				var json = response.rates;
+				json["key"] = json[key];
+
+				$("#date").text("Date: " + response.date);
+				$("#rates").text("Rates: " + response.rates.key);
+				
+			});
+
+
+		});
+	});
+
+</script>
+
+
+
+
