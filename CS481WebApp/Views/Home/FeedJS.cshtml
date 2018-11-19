@@ -1,0 +1,29 @@
+﻿
+@{
+	ViewBag.Title = "FeedJS";
+}
+
+<h2>Marshall Events</h2>
+
+<p id="title"></p>
+<p id="content"></p>
+<p id="link"></p>
+<button>Get Event</button>
+
+<script>
+	var count = 0;
+	$(document).ready(function () {
+		$("button").click(function () {
+			$.get("https://mumobileprod.marshall.edu/banner-mobileserver/rest/1.2/feed", function (response) {
+				//response
+				console.log(response);
+				$("#title").text("Title: " + response.entries[count].title);
+				$("#content").text("Content: " + response.entries[count].content);
+				$("#link").text("For more information: " + response.entries[count].link);
+				count = count + 1;
+				//window.alert(temp);
+			});
+		});
+	});
+</script>
+

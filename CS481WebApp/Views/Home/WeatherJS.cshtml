@@ -1,0 +1,33 @@
+﻿
+@{
+	ViewBag.Title = "WeatherJS";
+}
+
+<h2>Please input the zip code</h2>
+
+
+<input type="text" name="txt1" id="txt2" />
+
+<p id="name"></p>
+<p id="temp"></p>
+<p id="humidity"></p>
+<button>Get Weather</button>
+
+<script>
+	$(document).ready(function () {
+		$("button").click(function () {
+			var zipcode = document.getElementById("txt2").value;
+			$.get("http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&APPID=26a2a5859fcf778dbe8fc240344ac11d&units=imperial", function (response) {
+				//response
+				console.log(response);
+				
+				$("#name").text("City: "+response.name);
+				$("#temp").text("Temperature: " + response.main.temp+"°F");
+				$("#humidity").text("Humidity: " + response.main.humidity);
+				//window.alert(temp);
+			});
+		});
+	});
+	
+</script>
+
