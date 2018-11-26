@@ -208,7 +208,6 @@
     <Compile Include="Models\API\DuckDuckGo.cs" />
     <Compile Include="Models\API\MarshallNewsFeed.cs" />
     <Compile Include="Models\API\News.cs" />
-    <Compile Include="Models\API\Reddit.cs" />
     <Compile Include="Models\API\Weather.cs" />
     <Compile Include="Models\Blog.Context.cs">
       <AutoGen>True</AutoGen>
@@ -237,7 +236,6 @@
     <Compile Include="Utilities\API\CurrencyExchangeAPI.cs" />
     <Compile Include="Utilities\API\DuckDuckGoAPI.cs" />
     <Compile Include="Utilities\API\MarshallNewsFeedAPI.cs" />
-    <Compile Include="Utilities\API\RedditAPI.cs" />
     <Compile Include="Utilities\API\NewsAPI.cs" />
     <Compile Include="Utilities\API\WeatherAPI.cs" />
   </ItemGroup>
