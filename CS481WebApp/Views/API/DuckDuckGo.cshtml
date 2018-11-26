@@ -1,0 +1,150 @@
+﻿@model QuickType.DuckDuckGo
+
+@{
+    ViewBag.Title = "DuckDuckGo";
+}
+
+<h2>DuckDuckGo</h2>
+<div>
+    @foreach (var item in Model.RelatedTopics)
+    {
+        if (item.Result != null)
+        {
+            <br />
+            @Html.Raw(@item.Result)
+            <br/>
+        }
+    }
+
+
+    </div>
+<div>
+    <h4>DuckDuckGo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Entity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageWidth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageWidth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbstractText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbstractText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageHeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageHeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefinitionUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefinitionUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Definition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Definition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DefinitionSource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DefinitionSource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Heading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Heading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abstract)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abstract)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageIsLogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageIsLogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AbstractSource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AbstractSource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Redirect)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Redirect)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Index</h1>
+    <div>
+        <p>
+            @Html.ActionLink("Currency API", "Currency", "API", new { exchangeRate = "USD" }, null)
+        </p>
+        <p>
+            @Html.ActionLink("Weather API", "Weather", "API", new { zipCode = "25705" }, null)
+        </p>
+        <p>
+            @Html.ActionLink("Duck Duck Go API", "DuckDuckGo", "API", new { query = "Amazon" }, null)
+        </p>
+        <p>
+            @Html.ActionLink("News API", "News", "API")
+        </p>
+        <p>
+            @Html.ActionLink("Marshall Feed API", "Marshall", "API")
+        </p>
+
+
+
+    </div>
+</body>
+</html>

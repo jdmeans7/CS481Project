@@ -1,0 +1,53 @@
+﻿@model QuickType.MarshallNewsFeed
+
+@{
+    ViewBag.Title = "Marshall";
+}
+
+<h2>Marshall</h2>
+@foreach (var item in Model.Entries)
+{
+    @item.Content.ToString()
+    <br />
+    @item.FeedName.ToString()
+    <br />
+    @item.Link.First().ToString()
+    <br />
+    <br />
+
+
+}
+<div>
+    <h4>MarshallNewsFeed</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstOffset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstOffset)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastOffset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastOffset)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eol)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

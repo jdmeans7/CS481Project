@@ -197,7 +197,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\APITestController.cs" />
+    <Compile Include="Controllers\APIController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -205,6 +205,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\API\DuckDuckGo.cs" />
+    <Compile Include="Models\API\MarshallNewsFeed.cs" />
+    <Compile Include="Models\API\News.cs" />
+    <Compile Include="Models\API\Reddit.cs" />
+    <Compile Include="Models\API\Weather.cs" />
     <Compile Include="Models\Blog.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,14 +228,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CurrencyConverter.cs" />
+    <Compile Include="Models\API\CurrencyConverter.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\APIHelper.cs" />
     <Compile Include="Utilities\API\CurrencyExchangeAPI.cs" />
+    <Compile Include="Utilities\API\DuckDuckGoAPI.cs" />
+    <Compile Include="Utilities\API\MarshallNewsFeedAPI.cs" />
+    <Compile Include="Utilities\API\RedditAPI.cs" />
+    <Compile Include="Utilities\API\NewsAPI.cs" />
+    <Compile Include="Utilities\API\WeatherAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -314,15 +323,18 @@
     <Content Include="Views\Blogs\Edit.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
     <Content Include="Views\Blogs\Manage.cshtml" />
-    <Content Include="Views\APITest\Currency.cshtml" />
-    <Content Include="Views\APITest\Index.cshtml" />
-    <Content Include="Views\APITest\Weather.cshtml" />
+    <Content Include="Views\API\Currency.cshtml" />
+    <Content Include="Views\API\Index.cshtml" />
+    <Content Include="Views\API\DuckDuckGo.cshtml" />
     <Content Include="Views\Home\API.cshtml" />
     <Content Include="Views\Home\Exchange.cshtml" />
     <Content Include="Views\Home\FeedJS.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\WeatherJS.cshtml" />
     <Content Include="Views\Home\WeatherOrNot.cshtml" />
+    <Content Include="Views\API\Weather.cshtml" />
+    <Content Include="Views\API\News.cshtml" />
+    <Content Include="Views\API\Marshall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

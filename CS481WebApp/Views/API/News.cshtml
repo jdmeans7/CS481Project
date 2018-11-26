@@ -1,0 +1,50 @@
+﻿@model QuickType.News
+
+@{
+    ViewBag.Title = "News";
+}
+
+<h2>News</h2>
+
+<div>
+
+
+    @foreach (var item in Model.Articles)
+    {
+        @item.Title
+        <br />
+        @item.Url
+        <br />
+        @item.Source.Name
+        <br />
+
+        <img src="@item.UrlToImage" alt="@item.Title" width="20%" height="20%">
+    }
+</div>
+
+<div>
+    <h4>News</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalResults)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalResults)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

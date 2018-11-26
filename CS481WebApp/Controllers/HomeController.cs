@@ -29,11 +29,6 @@ namespace CS481WebApp.Controllers
             return View();
         }
 
-        public JsonResult GetWeather()
-        {
-            Weather weath = new Weather();
-            return Json(weath.getWeatherForcast(), JsonRequestBehavior.AllowGet);
-        }
 
         public ActionResult FeedJS()
         {

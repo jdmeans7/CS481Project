@@ -1,0 +1,80 @@
+﻿@model QuickType.Weather
+
+@{
+    ViewBag.Title = "Weather";
+}
+
+<h2>Weather</h2>
+
+<div>
+
+    <ul>
+        <li>@Model.Name</li>
+
+
+        <li>Temp: @Model.Main.Temp</li>
+        <li>Humidity: @Model.Main.Humidity</li>
+        <li>Temp Min:@Model.Main.TempMin</li>
+        <li>Temp Max: @Model.Main.TempMax</li>
+
+
+        @foreach (var item in Model.WeatherWeather)
+        {
+            <li>@item.Main.ToString()</li>
+            <li>@item.Description.ToString()</li>
+
+        }
+    </ul>
+
+ </div>
+
+
+    <h4>Weather</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Base)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Base)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visibility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visibility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
