@@ -198,6 +198,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -221,6 +222,27 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comment.cs">
+      <DependentUpon>Forum.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forum.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Forum.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forum.cs">
+      <DependentUpon>Forum.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forum.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Forum.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forum1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Forum.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -246,6 +268,16 @@
       <DependentUpon>Blog.edmx</DependentUpon>
       <LastGenOutput>Blog1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Forum.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Forum.edmx</DependentUpon>
+      <LastGenOutput>Forum.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Forum.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Forum.edmx</DependentUpon>
+      <LastGenOutput>Forum1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -257,6 +289,13 @@
     </EntityDeploy>
     <Content Include="Models\Blog.edmx.diagram">
       <DependentUpon>Blog.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Forum.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Forum.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Forum.edmx.diagram">
+      <DependentUpon>Forum.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -311,6 +350,12 @@
     <Content Include="Views\Blogs\Edit.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
     <Content Include="Views\Blogs\Manage.cshtml" />
+    <Content Include="Views\Forum\Create.cshtml" />
+    <Content Include="Views\Forum\Delete.cshtml" />
+    <Content Include="Views\Forum\Details.cshtml" />
+    <Content Include="Views\Forum\Edit.cshtml" />
+    <Content Include="Views\Forum\Index.cshtml" />
+    <Content Include="Views\Forum\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

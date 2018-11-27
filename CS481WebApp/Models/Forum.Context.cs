@@ -13,10 +13,10 @@ namespace CS481WebApp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CS481WebApp_dbEntities : DbContext
+    public partial class CS481WebApp_dbEntities1 : DbContext
     {
-        public CS481WebApp_dbEntities()
-            : base("name=CS481WebApp_dbEntities")
+        public CS481WebApp_dbEntities1()
+            : base("name=CS481WebApp_dbEntities1")
         {
         }
     
@@ -25,8 +25,7 @@ namespace CS481WebApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Blog> Blogs { get; set; }
-
-        public System.Data.Entity.DbSet<CS481WebApp.Models.Forum> Fora { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Forum> Fora { get; set; }
     }
 }
