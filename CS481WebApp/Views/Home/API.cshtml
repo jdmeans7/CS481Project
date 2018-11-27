@@ -3,16 +3,26 @@
     ViewBag.Title = "API";
 }
 
-<h2>API</h2>
+<h2>API Homepage</h2>
 <body>
-	<div class="navbar navbar-inverse navbar-default">
-		<div class="container">
-			<ul class="nav navbar-nav">
-				<li>@Html.ActionLink("Weather API", "WeatherJS", "Home")</li>
-				<li>@Html.ActionLink("Events API", "FeedJS", "Home")</li>
-				<li>@Html.ActionLink("News API", "News", "Home")</li>
-				<li>@Html.ActionLink("ExchangeRates API", "Exchange", "Home")</li>
-			</ul>
-		</div>
-	</div>
+    <div class="navbar navbar-inverse navbar-default">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Weather API", "WeatherJS", "Home")</li>
+                <li>@Html.ActionLink("Events API", "FeedJS", "Home")</li>
+                <li>@Html.ActionLink("News API", "News", "Home")</li>
+                <li>@Html.ActionLink("ExchangeRates API", "Exchange", "Home")</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Select API</h3>
+    <select name="selectAPI" onchange="location = this.value;">
+        <option value="">Select API</option>
+        <option value="~/Home/WeatherJS"> Weather API</option>
+        <option value="~/Home/FeedJS">Events API</option>
+        <option value="~/Home/News">News API</option>
+        <option value="~/Home/Exchange">ExchangeRate API</option>
+    </select>
+
 </body>
