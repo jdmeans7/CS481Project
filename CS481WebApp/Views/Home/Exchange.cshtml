@@ -1,6 +1,6 @@
 ﻿
 @{
-	ViewBag.Title = "Exchange";
+    ViewBag.Title = "Exchange";
 }
 <h2>Exchange Rates</h2>
 
@@ -13,33 +13,43 @@
 <p id="date"></p>
 <p id="rates"></p>
 
+<!--
 <button>Get exchange rate</button>
+Using CSS button now
+-->
+
+<a class="btn btn-primary" name="exchangeBtn">Get Exchange Rate</a>
 
 <script>
-	
-	$(document).ready(function () {
-		$("button").click(function () {
-			var base = document.getElementById("txt1").value;
-			var rate = document.getElementById("txt2").value;
 
-			$.get("https://ratesapi.io/api/latest?base=" + base + "&symbols=" + rate, function (response) {
-				//response
-				console.log(response);
-				var key = rate;
-				var json = response.rates;
-				json["key"] = json[key];
+    $(document).ready(function () {
+        $("a").click(function () {
+            var base = document.getElementById("txt1").value;
+            var rate = document.getElementById("txt2").value;
 
-				$("#date").text("Date: " + response.date);
-				$("#rates").text("Rates: " + response.rates.key);
-				
-			});
+            $.get("https://ratesapi.io/api/latest?base=" + base + "&symbols=" + rate, function (response) {
+                //response
+                console.log(response);
+                var key = rate;
+                var json = response.rates;
+                json["key"] = json[key];
+
+                $("#date").text("Date: " + response.date);
+                $("#rates").text("Rates: " + response.rates.key);
+
+            });
 
 
-		});
-	});
+        });
+    });
 
 </script>
 
-
-
-
+<h3>Select API</h3>
+<select name="selectAPI" onchange="location = this.value;">
+    <option value="">Select API</option>
+    <option value="/Home/API">API Home</option>
+    <option value="/Home/WeatherJS">Weather API</option>
+    <option value="~/Home/FeedJS">Events API</option>
+    <option value="/Home/News">News API</option>
+</select>

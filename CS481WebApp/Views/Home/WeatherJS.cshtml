@@ -1,9 +1,11 @@
 ﻿
 @{
-	ViewBag.Title = "WeatherJS";
+    ViewBag.Title = "WeatherJS";
 }
 
-<h2>Please input the zip code</h2>
+<h1>Weather API</h1>
+
+<h3>Enter a zip code</h3>
 
 
 <input type="text" name="txt1" id="txt2" />
@@ -11,23 +13,37 @@
 <p id="name"></p>
 <p id="temp"></p>
 <p id="humidity"></p>
-<button>Get Weather</button>
+
+<!--<button>Get Weather</button>
+    
+    
+    Using CSS button to call JS function now
+    --->
+<a class="btn btn-primary" name="weatherBtn">Get Weather</a>
 
 <script>
-	$(document).ready(function () {
-		$("button").click(function () {
-			var zipcode = document.getElementById("txt2").value;
-			$.get("http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&APPID=26a2a5859fcf778dbe8fc240344ac11d&units=imperial", function (response) {
-				//response
-				console.log(response);
-				
-				$("#name").text("City: "+response.name);
-				$("#temp").text("Temperature: " + response.main.temp+"°F");
-				$("#humidity").text("Humidity: " + response.main.humidity);
-				//window.alert(temp);
-			});
-		});
-	});
-	
+    $(document).ready(function () {
+        $("a").click(function () {
+            var zipcode = document.getElementById("txt2").value;
+            $.get("http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&APPID=26a2a5859fcf778dbe8fc240344ac11d&units=imperial", function (response) {
+                //response
+                console.log(response);
+
+                $("#name").text("City: " + response.name);
+                $("#temp").text("Temperature: " + response.main.temp + "°F");
+                $("#humidity").text("Humidity: " + response.main.humidity);
+                //window.alert(temp);
+            });
+        });
+    });
+
 </script>
 
+<h3>Select API</h3>
+<select name="selectAPI" onchange="location = this.value;">
+    <option value="">Select API</option>
+    <option value="/Home/API">API Home</option>
+    <option value="/Home/FeedJS">Events API</option>
+    <option value="/Home/News">News API</option>
+    <option value="/Home/Exchange">ExchangeRate API</option>
+</select>
