@@ -1,6 +1,6 @@
 ﻿
 @{
-	ViewBag.Title = "FeedJS";
+    ViewBag.Title = "FeedJS";
 }
 
 <h2>Marshall Events</h2>
@@ -8,22 +8,35 @@
 <p id="title"></p>
 <p id="content"></p>
 <p id="link"></p>
-<button>Get Event</button>
+
+<!--<button>Get Event</button>
+Ussing CSS button now
+-->
+
+<a class="btn btn-primary" name="eventBtn">Get Event</a>
 
 <script>
-	var count = 0;
-	$(document).ready(function () {
-		$("button").click(function () {
-			$.get("https://mumobileprod.marshall.edu/banner-mobileserver/rest/1.2/feed", function (response) {
-				//response
-				console.log(response);
-				$("#title").text("Title: " + response.entries[count].title);
-				$("#content").text("Content: " + response.entries[count].content);
-				$("#link").text("For more information: " + response.entries[count].link);
-				count = count + 1;
-				//window.alert(temp);
-			});
-		});
-	});
+    var count = 0;
+    $(document).ready(function () {
+        $("a").click(function () {
+            $.get("https://mumobileprod.marshall.edu/banner-mobileserver/rest/1.2/feed", function (response) {
+                //response
+                console.log(response);
+                $("#title").text("Title: " + response.entries[count].title);
+                $("#content").text("Content: " + response.entries[count].content);
+                $("#link").text("For more information: " + response.entries[count].link);
+                count = count + 1;
+                //window.alert(temp);
+            });
+        });
+    });
 </script>
 
+<h3>Select API</h3>
+<select name="selectAPI" onchange="location = this.value;">
+    <option value="">Select API</option>
+    <option value="/Home/API">API Home</option>
+    <option value="/Home/WeatherJS">Weather API</option>
+    <option value="/Home/News">News API</option>
+    <option value="/Home/Exchange">ExchangeRate API</option>
+</select>
