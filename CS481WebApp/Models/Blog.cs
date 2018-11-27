@@ -14,10 +14,10 @@ namespace CS481WebApp.Models
     
     public partial class Blog
     {
-        public int blogID { get; set; }
-        public string UserId { get; set; }
+        public int BlogID { get; set; }
         public string Title { get; set; }
-        public string Text { get; set; }
+        public string Body { get; set; }
         public Nullable<System.DateTime> Timestamp { get; set; }
+        public string UserID { get; set; }
     }
 }

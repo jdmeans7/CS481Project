@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.text)
+            @Html.DisplayNameFor(model => model.Body)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.timestamp)
+            @Html.DisplayNameFor(model => model.Timestamp)
         </th>
         <th></th>
     </tr>
@@ -26,18 +26,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.name)
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.text)
+            @Html.DisplayFor(modelItem => item.Body)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.timestamp)
+            @Html.DisplayFor(modelItem => item.Timestamp)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.blogID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.blogID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.blogID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.BlogID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BlogID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BlogID })
         </td>
     </tr>
 }

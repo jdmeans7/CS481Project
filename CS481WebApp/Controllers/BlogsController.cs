@@ -13,7 +13,7 @@ namespace CS481WebApp.Controllers
 {
     public class BlogsController : Controller
     {
-        private Entities db = new Entities();
+        private CS481WebApp_dbEntities db = new CS481WebApp_dbEntities();
 
         // GET: Blogs
         public ActionResult Index()
@@ -24,7 +24,7 @@ namespace CS481WebApp.Controllers
         public ActionResult Manage()
         {
             var id = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            return View(db.Blogs.Where((x => x.userID == id)).ToList());
+            return View(db.Blogs.Where((x => x.UserID == id)).ToList());
         }
 
         // GET: Blogs/Details/5
@@ -53,7 +53,7 @@ namespace CS481WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "name,text")] Blog blog)
+        public ActionResult Create([Bind(Include = "Title,Body,")] Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -61,11 +61,11 @@ namespace CS481WebApp.Controllers
                 var timestamp = DateTime.Now;
                 Blog blogAdd = new Blog
                 {
-                    blogID = db.Blogs.Count(),
-                    userID = userID,
-                    name = blog.name,
-                    text = blog.text,
-                    timestamp = timestamp,
+                    BlogID = db.Blogs.Count(),
+                    UserID = userID,
+                    Title = blog.Title,
+                    Body = blog.Body,
+                    Timestamp = timestamp,
                 };
                 db.Blogs.Add(blogAdd);
                 db.SaveChanges();
@@ -95,7 +95,7 @@ namespace CS481WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "blogID,userID,name,text,timestamp")] Blog blog)
+        public ActionResult Edit([Bind(Include = "BlogID,Title,Body,Timestamp,UserID")] Blog blog)
         {
             if (ModelState.IsValid)
             {
