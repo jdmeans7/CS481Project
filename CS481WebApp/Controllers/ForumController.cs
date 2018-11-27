@@ -11,123 +11,124 @@ using Microsoft.AspNet.Identity;
 
 namespace CS481WebApp.Controllers
 {
-    public class BlogsController : Controller
+    public class ForumController : Controller
     {
-        private CS481WebApp_dbEntities db = new CS481WebApp_dbEntities();
+        private CS481WebApp_dbEntities1 db = new CS481WebApp_dbEntities1();
 
-        // GET: Blogs
+        // GET: Forum
         public ActionResult Index()
         {
-            return View(db.Blogs.ToList());
+            return View(db.Fora.ToList());
         }
 
         public ActionResult Manage()
         {
             var id = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            return View(db.Blogs.Where((x => x.UserID == id)).ToList());
+            return View(db.Fora.Where((x => x.UserID == id)).ToList());
         }
 
-        // GET: Blogs/Details/5
+        // GET: Forum/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
-            if (blog == null)
+            Forum forum = db.Fora.Find(id);
+            if (forum == null)
             {
                 return HttpNotFound();
             }
-            return View(blog);
+            return View(forum);
         }
 
-        // GET: Blogs/Create
+        // GET: Forum/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Blogs/Create
+        // POST: Forum/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Body,")] Blog blog)
+        public ActionResult Create([Bind(Include = "Title,Body")] Forum forum)
         {
             if (ModelState.IsValid)
             {
                 var userID = System.Web.HttpContext.Current.User.Identity.GetUserId();
                 var timestamp = DateTime.Now;
-                Blog blogAdd = new Blog
+                Forum forumAdd = new Forum
                 {
-                    BlogID = db.Blogs.Count(),
+                    ForumID = db.Fora.Count(),
                     UserID = userID,
-                    Title = blog.Title,
-                    Body = blog.Body,
+                    Title = forum.Title,
+                    Body = forum.Body,
                     Timestamp = timestamp,
+                    Score = 0
                 };
-                db.Blogs.Add(blogAdd);
+                db.Fora.Add(forumAdd);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(blog);
+            return View(forum);
         }
 
-        // GET: Blogs/Edit/5
+        // GET: Forum/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
-            if (blog == null)
+            Forum forum = db.Fora.Find(id);
+            if (forum == null)
             {
                 return HttpNotFound();
             }
-            return View(blog);
+            return View(forum);
         }
 
-        // POST: Blogs/Edit/5
+        // POST: Forum/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BlogID,Title,Body,Timestamp,UserID")] Blog blog)
+        public ActionResult Edit([Bind(Include = "ForumID,Title,Body,Timestamp,Score,UserID")] Forum forum)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blog).State = EntityState.Modified;
+                db.Entry(forum).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blog);
+            return View(forum);
         }
 
-        // GET: Blogs/Delete/5
+        // GET: Forum/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
-            if (blog == null)
+            Forum forum = db.Fora.Find(id);
+            if (forum == null)
             {
                 return HttpNotFound();
             }
-            return View(blog);
+            return View(forum);
         }
 
-        // POST: Blogs/Delete/5
+        // POST: Forum/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Blog blog = db.Blogs.Find(id);
-            db.Blogs.Remove(blog);
+            Forum forum = db.Fora.Find(id);
+            db.Fora.Remove(forum);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

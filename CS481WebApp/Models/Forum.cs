@@ -12,12 +12,13 @@ namespace CS481WebApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Blog
+    public partial class Forum
     {
-        public int BlogID { get; set; }
+        public int ForumID { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public Nullable<System.DateTime> Timestamp { get; set; }
+        public Nullable<long> Score { get; set; }
         public string UserID { get; set; }
     }
 }

@@ -1,10 +1,4 @@
-﻿@model IEnumerable<CS481WebApp.Models.Blog>
-
-@{
-    ViewBag.Title = "Manage";
-}
-
-<h2>Manage</h2>
+﻿@model IEnumerable<CS481WebApp.Models.Forum>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,6 +13,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Timestamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
         </th>
         <th></th>
     </tr>
@@ -35,9 +32,12 @@
             @Html.DisplayFor(modelItem => item.Timestamp)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogID })
+            @Html.DisplayFor(modelItem => item.Score)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ForumID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ForumID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ForumID })
         </td>
     </tr>
 }
