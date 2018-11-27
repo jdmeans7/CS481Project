@@ -204,24 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Blog.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Blog.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Blog.cs">
-      <DependentUpon>Blog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Blog.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Blog.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Blog1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Blog.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -236,27 +219,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Blog.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Blog.edmx</DependentUpon>
-      <LastGenOutput>Blog.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Blog.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Blog.edmx</DependentUpon>
-      <LastGenOutput>Blog1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\Blog.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Blog.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Blog.edmx.diagram">
-      <DependentUpon>Blog.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
