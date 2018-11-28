@@ -374,6 +374,12 @@
     <Content Include="Views\API\Marshall.cshtml" />
     <Content Include="Views\API\News.cshtml" />
     <Content Include="Views\API\Weather.cshtml" />
+    <Content Include="Views\Home\API.cshtml" />
+    <Content Include="Views\Home\Exchange.cshtml" />
+    <Content Include="Views\Home\FeedJS.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\WeatherJS.cshtml" />
+    <Content Include="Views\Home\WeatherOrNot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
