@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace CS481WebApp.Controllers
 {
+    [Authorize]
     public class APIController : Controller
     {
 
