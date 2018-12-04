@@ -34,6 +34,7 @@ namespace CS481WebApp.Utilities
                     String errorText = reader.ReadToEnd();
                     // log errorText
                 }
+                // ToDo: More Error Catching
                 throw;
             }
         }

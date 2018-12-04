@@ -1,0 +1,30 @@
+﻿
+<h2>DuckDuckGo Query</h2>
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div>
+            <form action="@Url.Action("DuckDuckGo", "API")" method="get">
+                <div class="form-group">
+                    <label for="query">Query</label>
+                    <input type="text" class="form-control" name="query" id="query" aria-describedby="queryHelp" placeholder="Enter Query">
+                    <small id="queryHelp" class="form-text text-muted">Enter a Simple Query to search on DuckDuckGo! </small>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="/Content/Images/duck_duck_go_logo.png" />
+            </div>
+            <div class="col-md-12 text-center">
+            <a href="https://duckduckgo.com/api"> About the DuckDuckGo API</a>
+            </div>
+        </div>
+        </div>
+    </div>

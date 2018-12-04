@@ -1,0 +1,13 @@
+﻿<h2>Weather</h2>
+
+<div>
+    <form action="@Url.Action("Weather", "API")" method="get">
+        <div class="form-group">
+            <label for="zipCode">Zip Code</label>
+            <input type="text" class="form-control" name="zipCode" id="zipCode" aria-describedby="zipCodeHelp" placeholder="Enter Zip Code">
+            <small id="zipCodeHelp" class="form-text text-muted">Enter a US zip code! </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Get Weather</button>
+    </form>
+</div>
