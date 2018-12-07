@@ -356,6 +356,8 @@
     <Content Include="Views\Forum\Edit.cshtml" />
     <Content Include="Views\Forum\Index.cshtml" />
     <Content Include="Views\Forum\Manage.cshtml" />
+    <Content Include="Views\Forum\CreateComment.cshtml" />
+    <Content Include="Views\Forum\ViewComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

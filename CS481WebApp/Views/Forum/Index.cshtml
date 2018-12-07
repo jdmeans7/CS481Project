@@ -23,9 +23,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Score)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
         <th></th>
     </tr>
 
@@ -44,12 +41,11 @@
             @Html.DisplayFor(modelItem => item.Score)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ForumID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ForumID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ForumID })
+            @Html.ActionLink("Comment", "CreateComment", new { ParentID=item.ForumID}, null)
+            @Html.ActionLink("View Comments", "ViewComments", new { ParentID=item.ForumID}, null)
         </td>
     </tr>
 }
