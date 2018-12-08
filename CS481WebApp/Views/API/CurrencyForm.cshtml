@@ -1,0 +1,13 @@
+﻿<h2>Exchange Rate Check</h2>
+
+<div>
+    <form action="@Url.Action("Currency", "API")" method="get">
+        <div class="form-group">
+            <label for="exchangeRate">Exchange Rate</label>
+            <input type="text" class="form-control" name="exchangeRate" id="exchangeRate" aria-describedby="exchangeRateHelp" placeholder="Enter Exchange Symbol">
+            <small id="exchangeRateHelp" class="form-text text-muted">Enter a symbol to get exchange rates for! </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary"> Get Conversions</button>
+    </form>
+</div>

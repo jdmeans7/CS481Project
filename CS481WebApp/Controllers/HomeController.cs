@@ -14,16 +14,19 @@ namespace CS481WebApp.Controllers
             return View();
         }
 
+        // ToDo: Remove once transitioned from JS
         public ActionResult API()
         {
             return View();
         }
 
+        // ToDo: Remove once transitioned from JS
         public ActionResult WeatherJS()
         {
             return View();
         }
 
+        // ToDo: Remove once transitioned from JS
         public ActionResult WeatherOrNot()
         {
             return View();
@@ -35,11 +38,13 @@ namespace CS481WebApp.Controllers
             return View();
         }
 
+        // ToDo: Remove once transitioned from JS
         public ActionResult News()
         {
             return View();
         }
 
+        // ToDo: Remove once transitioned from JS
         public ActionResult Exchange()
         {
             return View();

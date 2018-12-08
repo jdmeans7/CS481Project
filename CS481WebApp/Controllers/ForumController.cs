@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace CS481WebApp.Controllers
 {
+    [Authorize]
     public class ForumController : Controller
     {
         private CS481WebApp_dbEntities1 db = new CS481WebApp_dbEntities1();

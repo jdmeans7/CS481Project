@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace CS481WebApp.Controllers
 {
+    [Authorize]
     public class APIController : Controller
     {
 
@@ -22,25 +23,55 @@ namespace CS481WebApp.Controllers
         // Test: /APITest/Currency?zipCode=25705
         public ActionResult Weather(string zipCode = "25705")
         {
+            if (zipCode == null || zipCode == "")
+            {
+                return RedirectToAction("Error", "API", new { message = "Zip Code was blank! Please select back and try again.", link = "/API/WeatherForm" });
+            }
             var result = CS481WebApp.Utilities.API.WeatherAPI.GetWeatherForZipCode(zipCode);
             return View(result);
+        }
+
+        // Simple form for Weather
+        public ActionResult WeatherForm()
+        {
+            return View();
         }
 
         // Send the Currency Rate
         // Test: /APITest/Currency?exchangeRate=USD
         public ActionResult Currency(string exchangeRate = "USD")
         {
+            if (exchangeRate == null || exchangeRate == "")
+            {
+                return RedirectToAction("Error", "API", new{ message = "Currency was blank! Please try again.", link = "/API/CurrencyForm"});
+            }
+
             var result = CS481WebApp.Utilities.API.CurrencyExchangeAPI.GetCurrencyDetails(exchangeRate);
             return View(result);
         }
 
+        // Simple form for Currency
+        public ActionResult CurrencyForm()
+        {
+            return View();
+        }
 
         // Send the query to get result
         // Test: /APITest/DuckDuckGo?query=Amazon
         public ActionResult DuckDuckGo(string query = "Duck Duck Go")
         {
+            if (query == null || query == "")
+            {
+                return RedirectToAction("Error", "API", new { message = "Query was blank! Please select back and try again.", link = "/API/DuckDuckGoForm" });
+            }
             var result = CS481WebApp.Utilities.API.DuckDuckGoAPI.GetDuckDuckGoResponse(query);
             return View(result);
+        }
+
+        // Simple form for Duck Duck Go
+        public ActionResult DuckDuckGoForm()
+        {
+            return View();
         }
 
         // Get the news
@@ -59,12 +90,12 @@ namespace CS481WebApp.Controllers
             return View(result);
         }
 
-        // Get the news
-        // Test: /APITest/News
-        public ActionResult Reddit()
+        // Something went wrong
+        public ActionResult Error(string message, string link)
         {
-            var result = CS481WebApp.Utilities.API.NewsAPI.GetNews();
-            return View(result);
+            ViewBag.Message = message;
+            ViewBag.Link = link;
+            return View();
         }
     }
 }
