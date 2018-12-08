@@ -1,45 +1,45 @@
 ﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 <body>
-    <h1>Index</h1>
+    <h1>API Index</h1>
     <div>
         <h3>
             APIs
         </h3>
+        
+        <!--
         <p>
-            @Html.ActionLink("Currency API", "Currency", "API", new { exchangeRate = "USD" }, null)
+            //Html.ActionLink("Currency API", "Currency", "API", new { exchangeRate = "USD" }, null)
         </p>
         <p>
-            @Html.ActionLink("Weather API", "Weather", "API", new { zipCode = "25705" }, null)
+            //Html.ActionLink("Weather API", "Weather", "API", new { zipCode = "25705" }, null)
         </p>
         <p>
-            @Html.ActionLink("Duck Duck Go API", "DuckDuckGo", "API", new { query = "Amazon" }, null)
+            //Html.ActionLink("Duck Duck Go API", "DuckDuckGo", "API", new { query = "Amazon" }, null)
         </p>
         <p>
-            @Html.ActionLink("News API", "News", "API")
+            //Html.ActionLink("News API", "News", "API")
         </p>
         <p>
-            @Html.ActionLink("Marshall Feed API", "Marshall", "API")
+            //Html.ActionLink("Marshall Feed API", "Marshall", "API")
         </p>
+        -->
+
+        <div class="btn-group-vertical">
+            <a class="btn btn-primary" href="/API/Weather">Weather</a>
+            <a class="btn btn-primary" href="/API/News">News</a>
+            <a class="btn btn-primary" href="/API/Marshall">Marshall Events</a>
+            <a class="btn btn-primary" href="/API/DuckDuckGo">DuckDuckGo</a>
+            <a class="btn btn-primary" href="/API/Currency">Exchange Rate</a>
+        </div>
 
         <h3>
             <br />
             Home
         </h3>
-        <p>
-            @Html.ActionLink("Back to homepage", "Index", "Home")
-        </p>
-
+        <a class="btn btn-primary" href="~/Home/Index">Home</a>
     </div>
 </body>
-</html>

@@ -20,7 +20,7 @@ namespace CS481WebApp.Controllers
 
         // Send the Zip code to get weather
         // Test: /APITest/Currency?zipCode=25705
-        public ActionResult Weather(string zipCode)
+        public ActionResult Weather(string zipCode = "25705")
         {
             var result = CS481WebApp.Utilities.API.WeatherAPI.GetWeatherForZipCode(zipCode);
             return View(result);
@@ -28,7 +28,7 @@ namespace CS481WebApp.Controllers
 
         // Send the Currency Rate
         // Test: /APITest/Currency?exchangeRate=USD
-        public ActionResult Currency(string exchangeRate)
+        public ActionResult Currency(string exchangeRate = "USD")
         {
             var result = CS481WebApp.Utilities.API.CurrencyExchangeAPI.GetCurrencyDetails(exchangeRate);
             return View(result);
@@ -37,7 +37,7 @@ namespace CS481WebApp.Controllers
 
         // Send the query to get result
         // Test: /APITest/DuckDuckGo?query=Amazon
-        public ActionResult DuckDuckGo(string query)
+        public ActionResult DuckDuckGo(string query = "Duck Duck Go")
         {
             var result = CS481WebApp.Utilities.API.DuckDuckGoAPI.GetDuckDuckGoResponse(query);
             return View(result);
