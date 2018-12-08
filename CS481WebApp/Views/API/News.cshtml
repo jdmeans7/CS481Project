@@ -6,19 +6,34 @@
 
 <h2>News</h2>
 
+<style>
+    div.container {
+        padding: 2px 16px;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
 <div>
 
 
     @foreach (var item in Model.Articles)
     {
-        @item.Title
+        <div class="card">
+            <br />
+            <img src="@item.UrlToImage" alt="@item.Title" class="center-block" width="80%" height="45%">
+            <div class="container">
+                @item.Source.Name
+                <br />
+                @item.Title
+                <br />
+                @item.Url
+                <br />
+            </div>
+        </div>
         <br />
-        @item.Url
-        <br />
-        @item.Source.Name
-        <br />
-
-        <img src="@item.UrlToImage" alt="@item.Title" width="20%" height="20%">
     }
 </div>
 
