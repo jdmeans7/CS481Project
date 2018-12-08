@@ -12,36 +12,51 @@
         <h3>
             APIs
         </h3>
+        
+        <!--
         <p>
-            @Html.ActionLink("Currency API Auto Pass Parameters Example", "Currency", "API", new { exchangeRate = "USD" }, null)
+            //Html.ActionLink("Currency API Auto Pass Parameters Example", "Currency", "API", new { exchangeRate = "USD" }, null)
         </p>
         <p>
-            @Html.ActionLink("Currency Form API", "CurrencyForm", "API")
+            //Html.ActionLink("Currency Form API", "CurrencyForm", "API")
         </p>
         <p>
-            @Html.ActionLink("Weather API Auto Pass Parameters Example ", "Weather", "API", new { zipCode = "25705" }, null)
+            //Html.ActionLink("Weather API Auto Pass Parameters Example ", "Weather", "API", new { zipCode = "25705" }, null)
         </p>
         <p>
-            @Html.ActionLink("Weather Form API", "WeatherForm", "API")
+            //Html.ActionLink("Weather Form API", "WeatherForm", "API")
         </p>
         <p>
-            @Html.ActionLink("Duck Duck Go API Auto Pass Parameters Example", "DuckDuckGo", "API", new { query = "Amazon" }, null)
+            //Html.ActionLink("Duck Duck Go API Auto Pass Parameters Example", "DuckDuckGo", "API", new { query = "Amazon" }, null)
         </p>
         <p>
-            @Html.ActionLink("DuckDuckGo Form API", "DuckDuckGoForm", "API")
+            //Html.ActionLink("DuckDuckGo Form API", "DuckDuckGoForm", "API")
         </p>
         <p>
-            @Html.ActionLink("News API", "News", "API")
+            //Html.ActionLink("News API", "News", "API")
         </p>
         <p>
-            @Html.ActionLink("Marshall Feed API", "Marshall", "API")
+            //Html.ActionLink("Marshall Feed API", "Marshall", "API")
         </p>
+
+
+            NOTE: The auto pass is handled by default values for the functions in the API controller.
         -->
 
         <div class="btn-group-vertical">
-            <a class="btn btn-primary" href="/API/Weather">Weather</a>
+            <a class="btn btn-primary" href="/API/WeatherForm">Weather</a>
             <a class="btn btn-primary" href="/API/News">News</a>
             <a class="btn btn-primary" href="/API/Marshall">Marshall Events</a>
+            <a class="btn btn-primary" href="/API/DuckDuckGoForm">DuckDuckGo</a>
+            <a class="btn btn-primary" href="/API/CurrencyForm">Exchange Rate</a>
+        </div>
+
+        <h3>
+            Auto Parameter APIs
+        </h3>
+
+        <div class="btn-group-vertical">
+            <a class="btn btn-primary" href="/API/Weather">Weather</a>
             <a class="btn btn-primary" href="/API/DuckDuckGo">DuckDuckGo</a>
             <a class="btn btn-primary" href="/API/Currency">Exchange Rate</a>
         </div>
@@ -50,6 +65,6 @@
             <br />
             Home
         </h3>
-        <a class="btn btn-primary" href="~/Home/Index">Home</a>
+        <a class="btn btn-default" href="~/Home/Index">Home</a>
     </div>
 </body>

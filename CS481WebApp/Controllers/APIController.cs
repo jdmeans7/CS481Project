@@ -58,7 +58,7 @@ namespace CS481WebApp.Controllers
 
         // Send the query to get result
         // Test: /APITest/DuckDuckGo?query=Amazon
-        public ActionResult DuckDuckGo(string query = "Duck Duck Go")
+        public ActionResult DuckDuckGo(string query = "Amazon")
         {
             if (query == null || query == "")
             {
