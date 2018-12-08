@@ -6,32 +6,48 @@
 
 <h2>Weather</h2>
 
-<div>
+<style>
+    div.container {
+        padding: 2px 16px;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 
-    <ul>
-        <li>@Model.Name</li>
+<div class="card">
+    <div class="container">
 
+        <h3>@Model.Name</h3>
+        <br />
+        <h4>Temperature</h4>
+        Current: @Model.Main.Temp
+        <br />
+        Min: @Model.Main.TempMin
+        <br />
+        Max: @Model.Main.TempMax
+        <br />
+        Humidity: @Model.Main.Humidity
+        <br />
+        <br />
+        <h4>Conditions</h4>
+        <ul>
+            @foreach (var item in Model.WeatherWeather)
+            {
+                <li>@item.Main.ToString()</li>
+                <li>@item.Description.ToString()</li>
 
-        <li>Temp: @Model.Main.Temp</li>
-        <li>Humidity: @Model.Main.Humidity</li>
-        <li>Temp Min:@Model.Main.TempMin</li>
-        <li>Temp Max: @Model.Main.TempMax</li>
-
-
-        @foreach (var item in Model.WeatherWeather)
-        {
-            <li>@item.Main.ToString()</li>
-            <li>@item.Description.ToString()</li>
-
-        }
-    </ul>
-
+            }
+        </ul>
+    </div>
  </div>
 
+<br />
 
     <h4>Weather</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" max-width="80%">
         <dt>
             @Html.DisplayNameFor(model => model.Base)
         </dt>

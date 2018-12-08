@@ -4,19 +4,33 @@
     ViewBag.Title = "Marshall";
 }
 
+<style>
+    div.container {
+        padding: 2px 16px;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        text-overflow: ellipsis;
+    }
+</style>
+
 <h2>Marshall</h2>
 @foreach (var item in Model.Entries)
 {
-    @item.Content.ToString()
+    <div class="card">
+        <div class="container">
+            <h4>@item.FeedName.ToString()</h4>
+            <p>
+                @item.Link.First().ToString()
+            </p>
+            <p>
+                @item.Content.ToString()
+            </p>
+            <br />
+        </div>
+    </div>
     <br />
-    @item.FeedName.ToString()
-    <br />
-    @item.Link.First().ToString()
-    <br />
-    <br />
-
-
 }
+
 <div>
     <h4>MarshallNewsFeed</h4>
     <hr />
