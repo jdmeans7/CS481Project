@@ -1,0 +1,15 @@
+﻿@model QuickType.Stocks
+
+@{
+    ViewBag.Title = "Stocks";
+}
+
+<h2>Stocks</h2>
+
+
+<h3>@Model.Quote.Symbol</h3>
+<legend>@Model.Quote.CompanyName</legend>
+
+<div>Latest Price: $ @Model.Quote.LatestPrice</div>
+<div>Last Quoted Time: @Model.Quote.LatestTime</div>
+
