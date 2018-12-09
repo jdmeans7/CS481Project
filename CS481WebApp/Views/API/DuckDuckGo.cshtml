@@ -4,14 +4,31 @@
     ViewBag.Title = "DuckDuckGo";
 }
 
+<style>
+    div.container {
+        padding: 2px 16px;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        text-overflow: ellipsis;
+    }
+</style>
+
 <h2>DuckDuckGo</h2>
 <div>
     @foreach (var item in Model.RelatedTopics)
     {
         if (item.Result != null)
         {
-            <br />
-            @Html.Raw(@item.Result)
+
+            string[] s = item.Result.Split('"');
+            string[] text = s[1].Split('/');
+
+            <div class="card">
+                <div class="container">
+                    <a href="@s[1]">@text[text.Length - 1] </a>
+                    <p>@s[2].Split('>')[s[2].Split('>').Length - 1]</p>
+                </div>
+            </div>
             <br />
         }
     }

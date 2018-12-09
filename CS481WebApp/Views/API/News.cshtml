@@ -10,7 +10,6 @@
     div.container {
         padding: 2px 16px;
         max-width: 100%;
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -25,11 +24,8 @@
             <br />
             <img src="@item.UrlToImage" alt="@item.Title" class="center-block" width="80%" height="45%">
             <div class="container">
-                @item.Source.Name
-                <br />
-                @item.Title
-                <br />
-                @item.Url
+                <p>@item.Title</p>
+                <a href="@item.Url">@item.Source.Name</a>
                 <br />
             </div>
         </div>
