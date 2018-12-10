@@ -19,6 +19,28 @@ namespace CS481WebApp.Controllers
             return View();
         }
 
+
+        // Simple form for Stock
+        public ActionResult StocksForm()
+        {
+            return View();
+        }
+
+        // Send the stock to get weather
+        // Test: /APITest/Stock?stockIdentifier=MSFT
+        public ActionResult Stocks(string stockIdentifier = "MSFT")
+        {
+            if (stockIdentifier == null || stockIdentifier == "")
+            {
+                return RedirectToAction("Error", "API", new { message = "Zip Code was blank! Please select back and try again.", link = "/API/StockForm" });
+            }
+            var result = CS481WebApp.Utilities.API.StocksAPI.GetStockDetails(stockIdentifier);
+            return View(result);
+        }
+
+
+
+
         // Send the Zip code to get weather
         // Test: /APITest/Currency?zipCode=25705
         public ActionResult Weather(string zipCode = "25705")

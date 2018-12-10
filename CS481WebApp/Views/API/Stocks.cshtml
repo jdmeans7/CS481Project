@@ -1,0 +1,18 @@
+﻿@model QuickType.Stocks
+
+@{
+    ViewBag.Title = "Stocks";
+}
+
+<h2>Stocks</h2>
+
+
+<h3>@Model.Quote.Symbol</h3>
+<legend>@Model.Quote.CompanyName</legend>
+
+<div>Latest Price: $ @Model.Quote.LatestPrice</div>
+<div>Last Quoted Time: @Model.Quote.LatestTime</div>
+
+</br>
+<div>Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a>.</div>
+

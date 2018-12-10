@@ -210,6 +210,7 @@
     <Compile Include="Models\API\DuckDuckGo.cs" />
     <Compile Include="Models\API\MarshallNewsFeed.cs" />
     <Compile Include="Models\API\News.cs" />
+    <Compile Include="Models\API\Stocks.cs" />
     <Compile Include="Models\API\Weather.cs" />
     <Compile Include="Models\Blog.Context.cs">
       <AutoGen>True</AutoGen>
@@ -255,6 +256,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\APIHelper.cs" />
+    <Compile Include="Utilities\API\StocksAPI.cs" />
     <Compile Include="Utilities\API\CurrencyExchangeAPI.cs" />
     <Compile Include="Utilities\API\DuckDuckGoAPI.cs" />
     <Compile Include="Utilities\API\MarshallNewsFeedAPI.cs" />
@@ -385,6 +387,8 @@
     <Content Include="Views\API\CurrencyForm.cshtml" />
     <Content Include="Views\API\DuckDuckGoForm.cshtml" />
     <Content Include="Views\API\Error.cshtml" />
+    <Content Include="Views\API\StocksForm.cshtml" />
+    <Content Include="Views\API\Stocks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
