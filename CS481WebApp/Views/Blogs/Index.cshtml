@@ -4,53 +4,47 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Blog</h2>
 
 <style>
     table {
         table-layout: fixed;
     }
+
     td {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
+    div.container {
+        padding: 2px 16px;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
 </style>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Timestamp)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Timestamp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogID })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+<div class="card">
+    <div class="container">
+        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+        <p>@Html.DisplayFor(modelItem => item.Timestamp)</p>
+        <p>@Html.DisplayFor(modelItem => item.Body)</p>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = item.BlogID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BlogID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BlogID })
+        </p>
+
+    </div>
+</div>
+    <br />
 }
 
-</table>
+
