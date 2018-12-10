@@ -19,8 +19,7 @@ namespace CS481WebApp.Controllers
         // GET: Blogs
         public ActionResult Index()
         {
-            string id = User.Identity.GetUserId();
-            return View(db.Blogs.Where(b => b.UserID == id).ToList());
+            return View(db.Blogs.ToList());
         }
 
         public ActionResult Manage()

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<CS481WebApp.Models.Blog>
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<CS481WebApp.Models.Blog>
 
 @{
     ViewBag.Title = "Index";
@@ -26,12 +27,14 @@
         <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
         <p>@Html.DisplayFor(modelItem => item.Timestamp)</p>
         <p>@Html.DisplayFor(modelItem => item.Body)</p>
+        @if (User.Identity.GetUserId() == (item.UserID))
+        {
         <p>
             @Html.ActionLink("Edit", "Edit", new { id = item.BlogID }) |
             @Html.ActionLink("Details", "Details", new { id = item.BlogID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.BlogID })
         </p>
-
+        }
     </div>
 </div>
     <br />
