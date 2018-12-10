@@ -389,6 +389,8 @@
     <Content Include="Views\API\Error.cshtml" />
     <Content Include="Views\API\StocksForm.cshtml" />
     <Content Include="Views\API\Stocks.cshtml" />
+    <Content Include="Views\Forum\CreateComment.cshtml" />
+    <Content Include="Views\Forum\ViewComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

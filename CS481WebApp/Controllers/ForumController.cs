@@ -22,6 +22,11 @@ namespace CS481WebApp.Controllers
             return View(db.Fora.ToList());
         }
 
+        public ActionResult ViewComments()
+        {
+            return View(db.Comments.ToList());
+        }
+
         public ActionResult Manage()
         {
             var id = System.Web.HttpContext.Current.User.Identity.GetUserId();
@@ -134,6 +139,33 @@ namespace CS481WebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult CreateComment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateComment([Bind(Include = "Body, ParentID")] Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                var userID = System.Web.HttpContext.Current.User.Identity.GetUserId();
+                var timestamp = DateTime.Now;
+                Comment commentAdd = new Comment
+                {
+                    CommentID = db.Comments.Count(),
+                    Body = comment.Body,
+                    ParentID = comment.ParentID
+                };
+                db.Comments.Add(commentAdd);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(comment);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -142,5 +174,6 @@ namespace CS481WebApp.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

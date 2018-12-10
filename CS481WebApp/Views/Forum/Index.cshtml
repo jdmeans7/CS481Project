@@ -1,4 +1,5 @@
-﻿@model IEnumerable<CS481WebApp.Models.Forum>
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<CS481WebApp.Models.Forum>
 
 @{
     ViewBag.Title = "Index";
@@ -23,9 +24,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Score)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
         <th></th>
     </tr>
 
@@ -44,12 +42,16 @@
             @Html.DisplayFor(modelItem => item.Score)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ForumID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ForumID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ForumID })
+            @Html.ActionLink("Comment", "CreateComment", new { ParentID = item.ForumID }, null)
+            @Html.ActionLink("View Comments", "ViewComments", new { ParentID = item.ForumID }, null)
+            @if ((item.UserID == System.Web.HttpContext.Current.User.Identity.GetUserId()))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.ForumID })
+            }
+            @if ((item.UserID == System.Web.HttpContext.Current.User.Identity.GetUserId()))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.ForumID })
+            }
         </td>
     </tr>
 }
