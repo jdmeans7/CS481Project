@@ -32,7 +32,7 @@ namespace CS481WebApp.Controllers
         {
             if (stockIdentifier == null || stockIdentifier == "")
             {
-                return RedirectToAction("Error", "API", new { message = "Zip Code was blank! Please select back and try again.", link = "/API/StockForm" });
+                return RedirectToAction("Error", "API", new { message = "Stock identifier was blank! Please select back and try again.", link = "/API/StocksForm" });
             }
             var result = CS481WebApp.Utilities.API.StocksAPI.GetStockDetails(stockIdentifier);
             return View(result);
