@@ -98,13 +98,11 @@ namespace CS481WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "BlogID,Title,Body,Timestamp,UserID")] Blog blog)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(blog).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(blog);
+            Blog ba = db.Blogs.Find(blog.BlogID);
+            ba.Title = blog.Title;
+            ba.Body = blog.Body;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Blogs/Delete/5
