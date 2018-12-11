@@ -14,13 +14,14 @@
 </style>
 
 <h2>Marshall</h2>
+<br />
 @foreach (var item in Model.Entries)
 {
     <div class="card">
         <div class="container">
             <h4>@item.FeedName.ToString()</h4>
             <p>
-                @item.Link.First().ToString()
+                <a href="@item.Link.First().ToString()">@item.Link.First().ToString()</a>
             </p>
             <p>
                 @item.Content.ToString()
@@ -31,36 +32,7 @@
     <br />
 }
 
-<div>
-    <h4>MarshallNewsFeed</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstOffset)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstOffset)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastOffset)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastOffset)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Eol)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Eol)
-        </dd>
-
-    </dl>
-</div>
 
 <p>
     @Html.ActionLink("Back to List", "Index")

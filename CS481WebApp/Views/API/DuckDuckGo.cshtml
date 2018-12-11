@@ -1,4 +1,5 @@
 ﻿@model QuickType.DuckDuckGo
+@using System.Text.RegularExpressions
 
 @{
     ViewBag.Title = "DuckDuckGo";
@@ -11,6 +12,10 @@
         overflow-wrap: break-word;
         text-overflow: ellipsis;
     }
+    a:after {
+        content: '\A';
+        white-space: pre;
+    }
 </style>
 
 <h2>DuckDuckGo</h2>
@@ -20,13 +25,13 @@
         if (item.Result != null)
         {
 
-            string[] s = item.Result.Split('"');
-            string[] text = s[1].Split('/');
-
             <div class="card">
                 <div class="container">
-                    <a href="@s[1]">@text[text.Length - 1] </a>
-                    <p>@s[2].Split('>')[s[2].Split('>').Length - 1]</p>
+                    @Html.Raw(HttpUtility.HtmlDecode(item.Result))
+                    @if(@item.Icon.Url != "")
+                    {
+                        <img src="@item.Icon.Url" alt="@item.Text" class="center-block" width="30%" height="30%">
+                    }
                 </div>
             </div>
             <br />
@@ -35,186 +40,7 @@
 
 
 </div>
-<div>
-    <h4>DuckDuckGo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        @if (!Html.DisplayFor(model => model.Entity).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.Entity)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Entity)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.AnswerType).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.AnswerType)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.AnswerType)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.Answer).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.Answer)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Answer)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.ImageWidth).ToString().Equals("0"))
-        {
-            //Assuming the image has a value for width or height, there was an image found.
-            <dt>
-                @Html.DisplayNameFor(model => model.ImageWidth)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ImageWidth)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ImageHeight)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ImageHeight)
-            </dd>
-
-            //For image is the logo, write "yes/no" instead of "1/0"
-            if (!Html.DisplayFor(model => model.ImageIsLogo).ToString().Equals("0"))
-            {
-                <dt>
-                    @Html.DisplayNameFor(model => model.ImageIsLogo)
-                </dt>
-
-                <dd>
-                    Yes
-                </dd>
-            }
-            else
-            {
-                <dt>
-                    @Html.DisplayNameFor(model => model.ImageIsLogo)
-                </dt>
-
-                <dd>
-                    No
-                </dd>
-            }
-        }
-
-        @if (!Html.DisplayFor(model => model.Type).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.Type)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Type)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.AbstractText).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.AbstractText)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.AbstractText)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.DefinitionUrl).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.DefinitionUrl)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DefinitionUrl)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.Definition).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.Definition)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Definition)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.DefinitionSource).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.DefinitionSource)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DefinitionSource)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.Heading).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.Heading)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Heading)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.Abstract).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.Abstract)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Abstract)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.AbstractSource).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.AbstractSource)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.AbstractSource)
-            </dd>
-        }
-
-        @if (!Html.DisplayFor(model => model.Redirect).ToString().Equals(""))
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.Redirect)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Redirect)
-            </dd>
-        }
-
-        </dl>
-</div>
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
