@@ -104,13 +104,12 @@ namespace CS481WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ForumID,Title,Body,Timestamp,Score,UserID")] Forum forum)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(forum).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(forum);
+            Forum fa = db.Fora.Find(forum.ForumID);
+            fa.Title = forum.Title;
+            fa.Body = forum.Body;
+            db.Entry(fa).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Forum/Delete/5
@@ -135,6 +134,7 @@ namespace CS481WebApp.Controllers
         {
             Forum forum = db.Fora.Find(id);
             db.Fora.Remove(forum);
+            db.Comments.RemoveRange(db.Comments.Where(x => x.ParentID == forum.ForumID));
             db.SaveChanges();
             return RedirectToAction("Index");
         }
