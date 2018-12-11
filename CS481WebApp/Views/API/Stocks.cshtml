@@ -3,6 +3,73 @@
 @{
     ViewBag.Title = "Stocks";
 }
+@section Scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+    <script>
+        var chartData = [];
+        var labels = [];
+        var dictionary = {};
+        var stock = "@Model.Quote.Symbol";
+        @foreach (var item in Model.Chart)
+        {
+
+            @:dictionary = { t : @item.Date.ToUnixTimeMilliseconds() , y: @item.Close};
+            @:chartData.push(dictionary);
+            @:labels.push(@item.Date.ToUnixTimeMilliseconds());
+        }
+
+
+
+        var ctx = document.getElementById('stockChart').getContext('2d');
+        ctx.canvas.width = 1000;
+        ctx.canvas.height = 300;
+        var color = Chart.helpers.color;
+        var cfg = {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: stock,
+                    backgroundColor: "rgb(255, 128, 0)",
+                    borderColor: "rgb(255, 128, 0)",
+                    data: chartData,
+                    type: 'line',
+                    pointRadius: 0,
+                    fill: false,
+                    lineTension: 0,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        distribution: 'series',
+                        ticks: {
+                            source: 'labels'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Closing price ($)'
+                        }
+                    }]
+                }
+            }
+        };
+        var chart = new Chart(ctx, cfg);
+        document.getElementById('update').addEventListener('click', function () {
+            var type = document.getElementById('type').value;
+            chart.config.data.datasets[0].type = type;
+            chart.update();
+        });
+    </script>
+
+}
 
 <h2>Stocks</h2>
 
@@ -12,6 +79,20 @@
 
 <div>Latest Price: $ @Model.Quote.LatestPrice</div>
 <div>Last Quoted Time: @Model.Quote.LatestTime</div>
+
+<div>
+
+    <canvas id="stockChart"></canvas>
+    <br>
+    <br>
+	    Chart Type:
+    <select id="type">
+        <option value="line">Line</option>
+        <option value="bar">Bar</option>
+    </select>
+    <button id="update">update</button>
+
+</div>
 
 <br />
 <p>

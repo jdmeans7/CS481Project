@@ -3,9 +3,6 @@
 @{
     ViewBag.Title = "News";
 }
-
-<h2>News</h2>
-
 <style>
     div.container {
         padding: 2px 16px;
@@ -14,6 +11,10 @@
         text-overflow: ellipsis;
     }
 </style>
+
+<h2>News</h2>
+</br>
+
 
 <div>
 
@@ -25,7 +26,7 @@
             <img src="@item.UrlToImage" alt="@item.Title" class="center-block" width="80%" height="45%">
             <div class="container">
                 <p>@item.Title</p>
-                <a href="@item.Url">@item.Source.Name</a>
+                <a href="@item.Url">@item.Source.Name.ToString().ToUpperInvariant()</a>
                 <br />
             </div>
         </div>

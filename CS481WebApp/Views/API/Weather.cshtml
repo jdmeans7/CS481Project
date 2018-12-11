@@ -5,7 +5,7 @@
 }
 
 <h2>Weather</h2>
-
+<br />
 <style>
     div.container {
         padding: 2px 16px;
@@ -22,14 +22,15 @@
         <h3>@Model.Name</h3>
         <br />
         <h4>Temperature</h4>
-        Current: @Model.Main.Temp
+        Current: @Model.Main.Temp °F
         <br />
-        Min: @Model.Main.TempMin
+        Min: @Model.Main.TempMin °F
         <br />
-        Max: @Model.Main.TempMax
+        Max: @Model.Main.TempMax °F
         <br />
-        Humidity: @Model.Main.Humidity
+        Humidity: @Model.Main.Humidity %
         <br />
+
         <br />
         <h4>Conditions</h4>
         <ul>
@@ -45,50 +46,7 @@
 
 <br />
 
-    <h4>Weather</h4>
-    <hr />
-    <dl class="dl-horizontal" max-width="80%">
-        <dt>
-            @Html.DisplayNameFor(model => model.Base)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Base)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Visibility)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Visibility)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cod)
-        </dd>
-
-    </dl>
 
 <p>
     @Html.ActionLink("Back to List", "Index")
