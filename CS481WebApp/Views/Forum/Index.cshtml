@@ -7,7 +7,7 @@
 
 <style>
     div.container {
-        padding: 2px 16px;
+        padding: 6px 16px;
         max-width: 100%;
         overflow-wrap: break-word;
     }
@@ -25,18 +25,20 @@
 
 @foreach (var item in Model) {
     <div class="card">
-    <div class="container">
-        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
-        <p>@Html.DisplayFor(modelItem => item.Body)</p>
-        <p>@Html.DisplayFor(modelItem => item.Timestamp)</p>
-        @if (User.Identity.GetUserId() == (item.UserID))
-        {
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ForumID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ForumID })
-            </p>
-        }
-    </div>
+        <div class="container">
+            <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+            <p>@Html.DisplayFor(modelItem => item.Body)</p>
+            <p>@Html.DisplayFor(modelItem => item.Timestamp)</p>
+            @Html.ActionLink("Comment", "CreateComment", new { ParentID = item.ForumID }, null) |
+            @Html.ActionLink("View Comments", "ViewComments", new { ParentID = item.ForumID }, null)
+            @if (User.Identity.GetUserId() == (item.UserID))
+            {
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ForumID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ForumID })
+                </p>
+            }
+        </div>
 </div>
 }
 

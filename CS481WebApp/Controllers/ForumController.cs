@@ -22,9 +22,9 @@ namespace CS481WebApp.Controllers
             return View(db.Fora.ToList());
         }
 
-        public ActionResult ViewComments()
+        public ActionResult ViewComments(int? ParentID)
         {
-            return View(db.Comments.ToList());
+            return View(db.Comments.Where(x => x.ParentID == ParentID).ToList());
         }
 
         public ActionResult Manage()

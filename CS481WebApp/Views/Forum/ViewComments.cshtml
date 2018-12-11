@@ -1,28 +1,25 @@
 ﻿@model IEnumerable<CS481WebApp.Models.Comment>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParentID)
-        </th>
-        <th></th>
-    </tr>
+<style>
+    div.container {
+        padding: 6px 16px;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+</style>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParentID)
-        </td>
-    </tr>
+<h1>Comments</h1>
+<br />
+
+@foreach (var item in Model)
+{
+    <div class="card">
+        <div class="container">
+            <p>@Html.DisplayFor(modelItem => item.Body)</p>
+        </div>
+    </div>
+    <br />
 }
 
-</table>
+@Html.ActionLink("Back to list", "Index")
+
