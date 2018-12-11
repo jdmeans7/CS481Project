@@ -11,15 +11,41 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CS481WebApp.Models;
+using System.Configuration;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+using System.Diagnostics;
+using SendGrid;
+using System.Net;
+using SendGrid.Helpers.Mail;
 
 namespace CS481WebApp
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            await configSendGridasync(message);
+
+        }
+
+        // Use NuGet to install SendGrid (Basic C# client lib) 
+        private async Task configSendGridasync(IdentityMessage message)
+        {
+
+            var apiKey = ConfigurationManager.AppSettings["SendGridAPI"];
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("Team@CS481.com", "Team CS481");
+            var subject = message.Subject;
+            var to = new EmailAddress (message.Destination);
+            var plainTextContent = message.Body;
+            var htmlContent = message.Body;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+
+     
         }
     }
 
@@ -27,8 +53,24 @@ namespace CS481WebApp
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your SMS service here to send a text message.
+            // Twilio Begin
+            var accountSid = ConfigurationManager.AppSettings["SMSAccountIdentification"];
+            var authToken = ConfigurationManager.AppSettings["SMSAccountPassword"];
+            var fromNumber = ConfigurationManager.AppSettings["SMSAccountFrom"];
+
+            TwilioClient.Init(accountSid, authToken);
+
+            MessageResource result = MessageResource.Create(
+            new PhoneNumber(message.Destination),
+            from: new PhoneNumber(fromNumber),
+            body: message.Body
+            );
+
+            //Status is one of Queued, Sending, Sent, Failed or null if the number is not valid
+            Trace.TraceInformation(result.Status.ToString());
+            //Twilio doesn't currently have an async API, so return success.
             return Task.FromResult(0);
+            // Twilio End
         }
     }
 
