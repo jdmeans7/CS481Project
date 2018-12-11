@@ -5,55 +5,38 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    div.container {
+        padding: 2px 16px;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+</style>
+
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Timestamp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Score)
-        </th>
-        <th></th>
-    </tr>
+
+<p>
+    @Html.ActionLink("Manage My Forums", "Manage")
+</p>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Timestamp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Score)
-        </td>
-        <td>
-            @Html.ActionLink("Comment", "CreateComment", new { ParentID = item.ForumID }, null)
-            @Html.ActionLink("View Comments", "ViewComments", new { ParentID = item.ForumID }, null)
-            @if ((item.UserID == System.Web.HttpContext.Current.User.Identity.GetUserId()))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.ForumID })
-            }
-            @if ((item.UserID == System.Web.HttpContext.Current.User.Identity.GetUserId()))
-            {
+    <div class="card">
+    <div class="container">
+        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+        <p>@Html.DisplayFor(modelItem => item.Body)</p>
+        <p>@Html.DisplayFor(modelItem => item.Timestamp)</p>
+        @if (User.Identity.GetUserId() == (item.UserID))
+        {
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ForumID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ForumID })
-            }
-        </td>
-    </tr>
+            </p>
+        }
+    </div>
+</div>
 }
 
-</table>

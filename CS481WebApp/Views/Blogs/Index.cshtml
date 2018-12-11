@@ -20,20 +20,23 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+<p>
+    @Html.ActionLink("Manage My Blogs", "Manage")
+</p>
+
 @foreach (var item in Model)
 {
 <div class="card">
     <div class="container">
         <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
-        <p>@Html.DisplayFor(modelItem => item.Timestamp)</p>
         <p>@Html.DisplayFor(modelItem => item.Body)</p>
+        <p>@Html.DisplayFor(modelItem => item.Timestamp)</p>
         @if (User.Identity.GetUserId() == (item.UserID))
         {
-        <p>
-            @Html.ActionLink("Edit", "Edit", new { id = item.BlogID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.BlogID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.BlogID })
-        </p>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BlogID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BlogID })
+            </p>
         }
     </div>
 </div>
